@@ -1,6 +1,6 @@
 import React from "react";
 import { DocsThemeConfig } from "nextra-theme-docs";
-import LeapLogo from "./components/leapLogo";
+import LeapLogo from "./components/LeapLogo";
 
 const config: DocsThemeConfig = {
   logo: <LeapLogo />,
