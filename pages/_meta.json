@@ -2,5 +2,11 @@
   "index": "Introduction",
   "builds": "Builds",
   "docs": "Docs",
-  "general": "General"
+  "general": "General",
+  "contact": {
+    "title": "API Reference ↗",
+    "type": "page",
+    "href": "https://reference.tryleap.ai",
+    "newWindow": true
+  }
 }

@@ -14,6 +14,7 @@ const config: DocsThemeConfig = {
   footer: {
     text: "Leap Docs",
   },
+
   useNextSeoProps() {
     return {
       titleTemplate: "%s – Leap Docs",
