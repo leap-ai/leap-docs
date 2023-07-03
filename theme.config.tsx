@@ -1,8 +1,9 @@
 import React from "react";
 import { DocsThemeConfig } from "nextra-theme-docs";
+import LeapLogo from "./components/leapLogo";
 
 const config: DocsThemeConfig = {
-  logo: <span>Leap Docs</span>,
+  logo: <LeapLogo />,
   project: {
     link: "https://github.com/leap-api",
   },
@@ -12,6 +13,11 @@ const config: DocsThemeConfig = {
   docsRepositoryBase: "https://github.com/leap-api/leap-docs/blob/main",
   footer: {
     text: "Leap Docs",
+  },
+  useNextSeoProps() {
+    return {
+      titleTemplate: "%s – Leap Docs",
+    };
   },
 };
 
