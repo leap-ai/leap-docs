@@ -31,11 +31,15 @@ const config: DocsThemeConfig = {
 
     return (
       <>
+        <meta
+          property="og:image"
+          content="https://www.tryleap.ai/og.png"
+        ></meta>
         <meta property="og:url" content={url} />
         <meta property="og:title" content={frontMatter.title || "Leap"} />
         <meta
           property="og:description"
-          content={frontMatter.description || "A single API for everything AI"}
+          content={frontMatter.description || "Add AI to your app in minutes."}
         />
       </>
     );
