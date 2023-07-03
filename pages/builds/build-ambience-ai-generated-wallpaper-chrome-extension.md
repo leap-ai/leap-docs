@@ -33,7 +33,7 @@ Let's get started:
 
 ### Clone the repository:
 
-```bash
+```bash copy
 git clone https://github.com/leap-api/ambience.git
 ```
 
@@ -41,25 +41,25 @@ git clone https://github.com/leap-api/ambience.git
 
 Enter the `chrome-extension` directory:
 
-```bash
+```bash copy
 cd chrome-extension
 ```
 
 Install dependencies:
 
-```bash
+```bash copy
 yarn
 ```
 
 Start the app:
 
-```bash
+```bash copy
 yarn start
 ```
 
 Build the app (combine it into a zip):
 
-```bash
+```bash copy
 yarn build
 ```
 
@@ -67,19 +67,19 @@ yarn build
 
 Enter the `apis` directory:
 
-```bash
+```bash copy
 cd apis
 ```
 
 Install dependencies:
 
-```bash
+```bash copy
 yarn
 ```
 
 Create a `.env` file in the `apis` directory and include these environment variables:
 
-```js
+```js copy
 SUPABASE_KEY = your_supabase_key;
 SUPABASE_URL = your_supabase_url;
 INSERT_IMAGE_WEBHOOK_URL = your_insert_image_webhook_url;
@@ -89,7 +89,7 @@ OPENAI_API_KEY = your_openai_api_key;
 
 ### Start the development server:
 
-```bash
+```bash copy
 yarn dev
 ```
 
@@ -133,19 +133,19 @@ To generate images we used Leap's Generate Image endpoint, which receives a text
 
 The easiest way to set this up is to use Leap's SDK, which you can install by using
 
-```bash
+```bash copy
 npm i @leap-ai/sdk
 ```
 
 or
 
-```bash
+```bash copy
 yarn add @leap-ai/sdk
 ```
 
 In this repo, we also set up a simple utility file under `/lib/leap.ts` in order to avoid repeating the same initialization logic over and over.
 
-```ts
+```ts copy
 import { Leap } from "@leap-ai/sdk";
 
 if (!process.env.LEAP_API_KEY) {
@@ -172,13 +172,13 @@ What this will do is pin Leap so that all images generated use the same model.
 
 Heading over to our API endpoint `app/api/generate-image` you will now see that we first import Leap as follows.
 
-```ts
+```ts copy
 import { leap } from "@/lib/leap";
 ```
 
 And then when we want to generate an image within the route itself, we simply call:
 
-```ts
+```ts copy
 await leap.generate.createInferenceJob({
   prompt:
     "cosmic galaxy scene, depicting a breathtaking view of stars and planets; soft ambient lighting, hyperrealistic style, cool color palette, shot with a wide-angle lens",
@@ -214,7 +214,7 @@ In addition to having a great prompt, we also use `negativePrompt` to specify el
 
 Once Leap finishes generating our image, it calls our webhook; which then catches the payload (including the new imageUrls) and then inserts it to our Supabase database.
 
-```ts
+```ts copy
 const newRow = {
   imageUrl: image.uri,
 };
@@ -228,13 +228,13 @@ To generate a quote we will use GPT-4, and the Langchain library in order to fac
 
 We can initialize a new chat agent using:
 
-```ts
+```ts copy
 const chat = new ChatOpenAI({ temperature: 0.6, modelName: "gpt-4" });
 ```
 
 And then provide a set of instructions, and call the API as follows:
 
-```ts
+```ts copy
 const systemInstructions = [
   "You are a helpful assistant that generates a fictitious inspirational quote each time you are called.",
   "You only answer with the text, but not with the author.",
@@ -278,7 +278,7 @@ We chose to deploy our API to Vercel, in order to take advantage of their Cron J
 
 By creating a `vercel.json` file in the /apis/ directory (root of our apis app) you can instruct Vercel to hit your endpoints on a certain interval.
 
-```json
+```json copy
 {
   "crons": [
     {
@@ -303,7 +303,7 @@ The way this works is very simple, inside a new app (/chrome-extension) director
 
 This behavior is configured in the `src/manifest.json` file as follows:
 
-```json
+```json copy
 {
   "manifest_version": 3,
   "version": "1.0.31",
@@ -330,7 +330,7 @@ We can design and configure what we want to show in this new tab by personalizin
 
 In our case, the way this behaves is very simple. When the component mounts, we call the following function:
 
-```ts
+```ts copy
 const fetchImage = async () => {
   try {
     const response = await fetch("https://api.ambience.page/api/get-image");
@@ -348,7 +348,7 @@ const fetchImage = async () => {
 };
 ```
 
-```ts
+```ts copy
 const Newtab = () => {
 
   useEffect(() => {

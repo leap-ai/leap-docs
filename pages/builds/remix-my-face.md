@@ -26,13 +26,13 @@ To get stared, create a new next app.
 
 _For npm:_
 
-```bash
+```bash copy
 npx create-next-app@latest
 ```
 
 _For yarn:_
 
-```bash
+```bash copy
 yarn create next-app
 ```
 
@@ -49,13 +49,13 @@ After initializing your Next.js project, you'll need to install a couple of exte
 
 _For npm:_
 
-```bash
+```bash copy
 npm install --save axios @chakra-ui/react @chakra-ui/icons @carbon/icons-react
 ```
 
 _For yarn:_
 
-```bash
+```bash copy
 yarn add axios @chakra-ui/react @chakra-ui/icons @carbon/icons-react
 ```
 
@@ -69,7 +69,7 @@ First, you will need to create an account with Leap, and copy your API Key. If y
 
 Then in your project, create a `.env` file in the root of the project, and paste the key as follows - replacing `your_api_key` with your actual key:
 
-```js
+```js copy
 LEAP_API_KEY = your_api_key;
 ```
 
@@ -81,7 +81,7 @@ They should look like this;
 
 ### app/layout.tsx
 
-```ts
+```ts copy
 import { Inter } from "next/font/google";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import { Providers } from "./providers";
@@ -121,7 +121,7 @@ export default function RootLayout({
 
 ### app/page.tsx
 
-```ts
+```ts copy
 "use client";
 
 import { pollRemixStatus } from "@/lib/pollRemixStatus";
@@ -265,7 +265,7 @@ export default function Home() {
 
 ### app/providers.tsx
 
-```ts
+```ts copy
 "use client";
 
 import { CacheProvider } from "@chakra-ui/next-js";
@@ -301,7 +301,7 @@ Your front-end will be responsible for submitting the request, getting back the 
 
 This endpoint is what you will call after a user draws in the canvas and submits. It accepts a POST request with a `multipart/form-data` body that contains both the image file and a prompt. It retrieves these values and then passes it on to Leap.
 
-```ts
+```ts copy
 import { NextResponse } from "next/server";
 
 export const runtime = "edge";
@@ -389,7 +389,7 @@ export async function POST(request: Request) {
 
 After your front-end calls the endpoint above, it will resolve with a remixId. At this stage the request is in progress, but hasn't completed. So we will use this new endpoint to check the status. Your frontend can poll this endpoint to fetch the latest status and pass it back to your front-end.
 
-```ts
+```ts copy
 import { NextResponse } from "next/server";
 
 export const runtime = "edge";
@@ -548,7 +548,7 @@ export default ImageSelector;
 - Displays a single image result.
 - On Click it also opens up a modal so a user can enlarge their result.
 
-```ts
+```ts copy
 // Import necessary Chakra UI components and hooks
 import {
   Box,
@@ -676,7 +676,7 @@ export default function ImageResult({ src }: ImageResultProps) {
 
 - Renders all of the Image Results after the remix has succeeded.
 
-```ts
+```ts copy
 // Import necessary components and types
 import { RemixImage } from "@/types/remix.type";
 import { Box, SimpleGrid } from "@chakra-ui/react";
@@ -714,7 +714,7 @@ export default function ImageResultsList({ images }: { images: RemixImage[] }) {
 
 - Lets a user select the style by providing a series of pre-set prompts.
 
-```ts
+```ts copy
 import { ChevronDown } from "@carbon/icons-react";
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { useEffect } from "react";
@@ -799,7 +799,7 @@ And finally, we'll implement our utilities;
 
 **lib/pollRemixStatus.ts**
 
-```ts
+```ts copy
 import axios from "axios";
 import { RemixImage, RemixResponse } from "@/types/remix.type";
 
@@ -875,7 +875,7 @@ export const pollRemixStatus = (
 
 **lib/resizer.ts**
 
-```ts
+```ts copy
 import Resizer from "react-image-file-resizer";
 
 // Function to resize an image file that accepts a file as input
@@ -903,7 +903,7 @@ export const resizeFile = (file: File) => {
 
 **lib/submitImage.ts**
 
-```ts
+```ts copy
 // Import the necessary library for sending HTTP requests
 import axios from "axios";
 
@@ -954,13 +954,13 @@ After implementing all these files you're now ready to run the app. Simply head 
 
 _For npm:_
 
-```bash
+```bash copy
 npm run dev
 ```
 
 _For yarn:_
 
-```bash
+```bash copy
 yarn dev
 ```
 

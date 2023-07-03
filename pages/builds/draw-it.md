@@ -25,13 +25,13 @@ To get stared, create a new next app.
 
 _For npm:_
 
-```bash
+```bash copy
 npx create-next-app@latest
 ```
 
 _For yarn:_
 
-```bash
+```bash copy
 yarn create next-app
 ```
 
@@ -48,13 +48,13 @@ After initializing your Next.js project, you'll need to install a couple of exte
 
 _For npm:_
 
-```bash
+```bash copy
 npm install --save axios @chakra-ui/react @chakra-ui/icons @carbon/icons-react
 ```
 
 _For yarn:_
 
-```bash
+```bash copy
 yarn add axios @chakra-ui/react @chakra-ui/icons @carbon/icons-react
 ```
 
@@ -68,7 +68,7 @@ First, you will need to create an account with Leap, and copy your API Key. If y
 
 Then in your project, create a `.env` file in the root of the project, and paste the key as follows:
 
-```js
+```js copy
 LEAP_API_KEY = rEpl4ce - th1s - w1th - y0ur - k3y;
 ```
 
@@ -80,7 +80,7 @@ They should look like this;
 
 ### app/layout.tsx
 
-```ts
+```ts copy
 import { Inter } from "next/font/google";
 import { Providers } from "./providers";
 
@@ -108,7 +108,7 @@ export default function RootLayout({
 
 ### app/page.tsx
 
-```ts
+```ts copy
 "use client";
 
 import React from "react";
@@ -133,7 +133,7 @@ export default function Home() {
 
 ### app/providers.tsx
 
-```ts
+```ts copy copy
 "use client";
 
 import { CacheProvider } from "@chakra-ui/next-js";
@@ -169,7 +169,7 @@ Your front-end will be responsible for submitting the request, getting back the 
 
 This endpoint is what you will call after a user draws in the canvas and submits. It accepts a POST request with a `multipart/form-data` body that contains both the image file and a prompt. It retrieves these values and then passes it on to Leap.
 
-```ts
+```ts copy
 import { NextResponse } from "next/server";
 
 export const runtime = "edge";
@@ -253,7 +253,7 @@ export async function POST(request: Request) {
 
 After your front-end calls the endpoint above, it will resolve with a remixId. At this stage the request is in progress, but hasn't completed. So we will use this new endpoint to check the status. Your frontend can poll this endpoint to fetch the latest status and pass it back to your front-end.
 
-```ts
+```ts copy
 import { NextResponse } from "next/server";
 
 export const runtime = "edge";
@@ -313,7 +313,7 @@ Let's start with the components:
 
 **app/components/Canvas.tsx**
 
-```ts
+```ts copy
 "use client";
 
 import {
@@ -459,7 +459,7 @@ export default Canvas;
 
 **app/components/ImageResults.tsx**
 
-```ts
+```ts copy
 import { Box, Image, SimpleGrid } from "@chakra-ui/react";
 import { RemixImage } from "@/types/remix.type";
 import React from "react";
@@ -489,7 +489,7 @@ export default function ImageResults({ images }: { images: RemixImage[] }) {
 
 **app/components/PromptSelector.tsx**
 
-```ts
+```ts copy
 import {
   Menu,
   MenuButton,
@@ -561,7 +561,7 @@ export default function PromptSelector({
 
 **lib/canvasHandlers.ts**
 
-```ts
+```ts copy
 import { MouseEvent, TouchEvent } from "react";
 import { RefObject } from "react";
 
@@ -666,7 +666,7 @@ export const handleTouchEnd = (drawing: MutableRefObject<boolean>) => {
 
 **lib/canvasUtils.ts**
 
-```ts
+```ts copy
 import { MouseEvent, TouchEvent } from "react";
 import { RefObject } from "react";
 
@@ -717,13 +717,13 @@ After implementing all these files you're now ready to run the app. Simply head 
 
 _For npm:_
 
-```bash
+```bash copy
 npm run dev
 ```
 
 _For yarn:_
 
-```bash
+```bash copy
 yarn dev
 ```
 
