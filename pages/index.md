@@ -1,5 +1,7 @@
 ---
-title: "Leap Documentation"
+title: "Leap Docs"
+description: "Everything you need to know about the Leap platform including API reference, SDK
+docs, and product guides."
 date: "2023-5-31"
 ---
 
