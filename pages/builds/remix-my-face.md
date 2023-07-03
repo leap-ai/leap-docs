@@ -1,5 +1,6 @@
 ---
 title: "Remix My Face"
+description: "Build a Selfie to Image app using AI (Next.js, Chakra UI, Leap API)"
 date: "2023-5-18"
 ---
 
