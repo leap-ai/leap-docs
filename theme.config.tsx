@@ -7,12 +7,12 @@ import { useConfig } from "nextra-theme-docs";
 const config: DocsThemeConfig = {
   logo: <LeapLogo />,
   project: {
-    link: "https://github.com/leap-api",
+    link: "https://github.com/leap-ai",
   },
   chat: {
     link: "https://discord.com/invite/NCAKTUayPK",
   },
-  docsRepositoryBase: "https://github.com/leap-api/leap-docs/blob/main",
+  docsRepositoryBase: "https://github.com/leap-ai/leap-docs/blob/main",
   footer: {
     text: "Leap Docs",
   },
