@@ -1,5 +1,6 @@
 {
   "index": "Getting Started",
+  "authentication": "Authentication",
   "sdk": "TypeScript SDK",
   "builds": "Builds",
   "blog": "Blog",
