@@ -1,8 +1,8 @@
 {
-  "index": "Introduction",
+  "index": "Getting Started",
+  "sdk": "TypeScript SDK",
   "builds": "Builds",
-  "docs": "Docs",
-  "general": "General",
+  "blog": "Blog",
   "contact": {
     "title": "API Reference ↗",
     "type": "page",

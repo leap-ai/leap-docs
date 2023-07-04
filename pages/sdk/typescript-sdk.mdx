@@ -1,0 +1,156 @@
+---
+title: "Getting Started"
+date: "2023-5-31"
+---
+
+import { Tab, Tabs, Callout } from "nextra-theme-docs";
+import { internalLinks } from "../../utils/internal-links";
+
+# TypeScript SDK
+
+Our TypeScript SDK is the easiest way to get started integrating Leap into your app. It contains built-in methods for generating images, training models, and more.
+
+It enables you to do everything you can with the RESTful API, but with the added benefit of type safety and a more intuitive interface.
+
+
+* NPM: [https://www.npmjs.com/package/@leap-ai/sdk](https://www.npmjs.com/package/@leap-ai/sdk)
+* Source Code [https://github.com/leap-ai/leap-sdk](https://github.com/leap-ai/leap-sdk)
+
+## Installing
+
+To get started with our server-side SDK, simply install it using your preferred package manager.
+
+<Tabs items={["npm", "yarn"]}>
+  <Tab>
+    ```bash copy
+    npm i @leap-ai/sdk
+    ```
+  </Tab>
+  <Tab>
+    ```bash copy
+    yarn add @leap-ai/sdk
+    ```
+  </Tab>
+</Tabs>
+
+
+## Initializing
+
+After installing the package, you can initialize it on your server-side code by initializing a new instance of `Leap`, for example:
+
+```ts copy
+import { Leap } from "@leap-ai/sdk";
+
+const leap = new Leap(process.env.LEAP_API_KEY);
+```
+
+Consider creating a utility file to initialize the SDK, and then import it into your API handlers for easy access.
+
+```ts filename="leap-util.ts" copy
+import { Leap } from "@leap-ai/sdk";
+
+if (!process.env.LEAP_API_KEY) {
+  throw new Error("Missing env var: LEAP_API_KEY");
+}
+
+const leap = new Leap(process.env.LEAP_API_KEY);
+
+export { leap };
+```
+
+
+<Callout emoji="ℹ" type="info" >
+  The Leap SDK is meant to be used server-side. It is important that you do not expose your API key to the client-side, as this would allow anyone to use your account.
+</Callout>
+
+## Generating Images
+
+To generate an image simply call the `generateImage` method on your `Leap` instance. You must pass in a prompt, and any other options you'd like to use. 
+
+```ts copy
+const { data, error } = await leap.generate.generateImage({
+  prompt: "A photo of a cat",
+  negativePrompt: "blurry, low quality",
+  numberOfImages: 1,
+  width: 512,
+  height: 512,
+  steps: 60,
+});
+```
+By default your image will be generated using the Stable Diffusion 1.5 Model, but you can pass in a different `modelId` if you'd like.
+
+```ts copy
+const { data, error } = await leap.generate.generateImage({
+  prompt: "A photo of a cat",
+  modelId: "eab32df0-de26-4b83-a908-a83f3015e971", // the id of a public or custom model
+});
+```
+
+For a list of all available public models and their IDs, you can visit the {<a href={internalLinks.publicModels}>public models</a>} page.
+
+Once your generation has completed, you will receive a response with the generation job containing the generated images (if successful). For example:
+
+```ts copy
+console.log(data);
+```
+
+```bash copy
+{
+  "id": "abc123",
+  "createdAt": "2023-07-04T20:55:54.644Z",
+  "prompt": "A photo of a cat",
+  "negativePrompt": "blurry, low quality",
+  "seed": 456465,
+  "width": 512,
+  "height": 512,
+  "promptStrength": 7.5,
+  "numberOfImages": 4,
+  "state": "finished",
+  "steps": 50,
+  "images": [
+    {
+      "id": "img001",
+      "createdAt": "2023-07-04T20:56:54.644Z",
+      "uri": "https://leap-api-prod.s3.amazonaws.com/.../img001.png",
+    },
+    ...
+  ],
+  "modelId": [
+    "eab32df0-de26-4b83-a908-a83f3015e971"
+  ],
+  "upscalingOption": "superResolution"
+}
+```
+
+
+### Asyncronous Generation
+
+Depending on whether you're using a serverless backend (such as Next.js) or not, you may need to generate images asynchronously. 
+
+Generating images can be done two ways:
+* `leap.generate.generateImage`: Submit generation request, and then wait for results to finish.
+* `leap.generate.createInferenceJob`: Submit generation request, and resolve right away.
+
+
+Awaiting `leap.generate.generateImage` on a serverless environment, may cause your function to time out. If you're using a serverless backend, we recommend using `leap.generate.createInferenceJob` instead.
+
+```ts
+const { data, error } = await leap.generate.createInferenceJob({
+  prompt: "A photo of a cat",
+});
+```
+
+When using `createInferenceJob`, you will receive a response with the generation job containing the generation job, but with an empty image array and the status will be set to `queued` or `processing`. For example:
+
+```shell copy
+{
+  "id": "abc123",
+  "createdAt": "2023-07-04T20:55:54.644Z",
+  "prompt": "A photo of a cat",
+  "state": "queued",
+  "images": [],
+  ... // other fields
+}
+```
+
+You can then use the `id` of the generation job to fetch the results later on. Or you can take advantage of our webhooks to receive a notification with the job payload when the generation job is complete.

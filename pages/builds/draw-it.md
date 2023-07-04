@@ -15,7 +15,7 @@ In this guide we will walk you step by step on how you can rebuild this app usin
 
 Additionally here are the links to the repo and demo:
 
-- Github Repo: [https://github.com/leap-api/draw-it](https://github.com/leap-api/draw-it?ref=leap.mymidnight.blog)
+- Github Repo: [https://github.com/leap-ai/draw-it](https://github.com/leap-ai/draw-it?ref=leap.mymidnight.blog)
 - Demo App: [https://drawit.art/](https://drawit.art/?ref=leap.mymidnight.blog)
 - Leap Remix Endpoint API Reference: [https://docs.tryleap.ai/reference/controlcontroller_create](https://docs.tryleap.ai/reference/controlcontroller_create?ref=leap.mymidnight.blog)
 

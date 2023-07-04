@@ -16,6 +16,10 @@ const config: DocsThemeConfig = {
   footer: {
     text: "Leap Docs",
   },
+  sidebar: {
+    autoCollapse: true,
+    defaultMenuCollapseLevel: 1,
+  },
 
   useNextSeoProps() {
     return {

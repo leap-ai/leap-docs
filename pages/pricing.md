@@ -13,7 +13,6 @@ Try out our features for free then add a payment method to get access to additio
 
 - **Image Generation:** Generate 100 images on a standard queue.
 - **Model Fine-Tuning:** Train 1 model for free.
-- **Remix:** Edit 40 images for free.
 
 ## Pro Plan
 
@@ -21,9 +20,8 @@ Add a payment method, then only pay for what you use.
 
 - **Image Generation:** Pay $0.01 per image (premium queue).
 - **Model Fine-Tuning:** Pay $2 per model version trained (premium queue)
-- **Remix:** Pay $0.01 per image (premium queue)
 
-* * *
+---
 
 ### Free Tier Policy
 
@@ -41,6 +39,6 @@ You can cancel any time by logging into your account on Leap, heading over to th
 
 Note: you will be billed for usage incurred before your cancellation.
 
-* * *
+---
 
 For any support inquiries, email us at help@tryleap.ai

@@ -16,7 +16,7 @@ In this guide we will walk you step by step on how you can rebuild this app usin
 
 Additionally here are the links to the repo and demo:
 
-- Github Repo: [https://github.com/leap-api/remix-my-face](https://github.com/leap-api/remix-my-face?ref=leap.mymidnight.blog)
+- Github Repo: [https://github.com/leap-ai/remix-my-face](https://github.com/leap-ai/remix-my-face?ref=leap.mymidnight.blog)
 - Demo App: [https://www.remixmyface.com/](https://www.remixmyface.com/?ref=leap.mymidnight.blog)
 - Leap Remix Endpoint API Reference: [https://docs.tryleap.ai/reference/controlcontroller_create](https://docs.tryleap.ai/reference/controlcontroller_create?ref=leap.mymidnight.blog)
 
