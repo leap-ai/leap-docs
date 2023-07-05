@@ -76,7 +76,7 @@ export function QuickStartCards() {
       />
       <SelectionCard
         title="RESTful API"
-        description="HTTP endpoints for your app to interact with Leap."
+        description="Call our HTTP endpoints directly from any language."
         href={externalLinks.apiReference}
         icon={<FaCode size={26} />}
       />
