@@ -5,27 +5,15 @@ date: "2023-5-4"
 
 # Pricing
 
-Our pricing is straightforward.
+Get started for free, and upgrade if you want to keep going.
 
-Try out our features for free then add a payment method to get access to additional features, unlimited usage, and access to premium queues.
+Paid plans include a base quota for images. If you exceed the included quota, or want to train models, these are billed additional to your plan.
 
-## Free Tier
-
-- **Image Generation:** Generate 100 images on a standard queue.
-- **Model Fine-Tuning:** Train 1 model for free.
-
-## Pro Plan
-
-Add a payment method, then only pay for what you use.
-
-- **Image Generation:** Pay $0.01 per image (premium queue).
-- **Model Fine-Tuning:** Pay $2 per model version trained (premium queue)
-
----
+![](./images/tiers.png)
 
 ### Free Tier Policy
 
-Due to large storage costs from many unused models, our policy is that free projects are eligible for deletion after 7 days if they don’t convert to paid.
+If you are on the free tier and train a model, it will only be retained for 7 days. Paid accounts can keep their models for up to 30 days. Id you'd like us to host your model for longer, reach out to us at help@tryleap.ai
 
 ### How to Upgrade
 
