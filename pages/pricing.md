@@ -21,9 +21,7 @@ Log into your account and within the desired project you wish to upgrade, click 
 
 ### How to Cancel
 
-You can cancel any time by logging into your account on Leap, heading over to the Usage page (click on View Usage on the navbar) and then clicking on the "Manage/Cancel my Subscription" button.
-
-![](./images/pricing.png)
+You can cancel any time by logging into your account on Leap, clicking on the "View Usage" button within your project, and then selecting "Manage Account".
 
 Note: you will be billed for usage incurred before your cancellation.
 
