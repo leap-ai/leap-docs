@@ -7,4 +7,9 @@ export const internalLinks = {
   typeScriptSdk_types_image: "/sdk/types#image",
   publicModels: "/public-models",
   authentication: "/authentication",
+  builds_ambience:
+    "/builds/build-ambience-ai-generated-wallpaper-chrome-extension",
+  builds_remixMyFace: "/builds/remix-my-face",
+  builds_drawIt: "/builds/draw-it",
+  builds_wallpapersFyi: "https://github.com/leap-ai/wallpapers-ai",
 };

@@ -1,0 +1,260 @@
+---
+title: RESFful API
+date: "2023-5-4"
+---
+
+#### Generating images using API
+Our text-to-image endpoint generates an image from a text prompt using a given model. The model used to generate the image is determined by the modelId parameter. An image job ID is returned that can be used to retrieve the generated image(s).
+
+We have curated a set of pre-trained, ‘default’ models which everyone can use to generate from [here](https://reference.tryleap.ai/reference/inferencescontroller_create-1). 
+You may also use custom models trained via fine-tuning.
+
+To get your custom models use `GET /v1/images/models` with your API key as described in the [Get Models](/api-reference/voices)
+endpoint documentation. You will need this ID to query the generete image endpoint.
+
+Here is a `python` example implementing image generation with our pre-trained Realistic Vision model. Get your [API Key](authentication) first
+and try it out! You can also run it in Google Colab [here](https://colab.research.google.com/drive/18-hR4ur6cLnYcwCPuYFhIgKjGvVpaUsO#scrollTo=_pXpe_iiCkqq).
+
+```python
+import requests
+import json
+import time
+
+# get api key from Leap AI https://www.tryleap.ai
+API_KEY = "ADD_YOUR_API_KEY"
+
+HEADERS = {
+    "accept": "application/json",
+    "content-type": "application/json",
+    "authorization": f"Bearer {API_KEY}"
+}
+
+def generate_image(model_id, prompt):
+    url = f"https://api.tryleap.ai/api/v1/images/models/{model_id}/inferences"
+
+    payload = {
+        "prompt": prompt,
+        "steps": 50,
+        "width": 512,
+        "height": 512,
+        "numberOfImages": 4,
+        "promptStrength": 7,
+        "enhancePrompt": False,
+        "restoreFaces": True,
+        "upscaleBy": "x1"
+    }
+
+    response = requests.post(url, json=payload, headers=HEADERS)
+    data = json.loads(response.text)
+
+    print(data)
+    inference_id = data["id"]
+    status = data["status"]
+
+    print(f"Inference ID: {inference_id}. Status: {status}")
+
+    return inference_id, status
+
+
+def get_inference_job(model_id, inference_id):
+    url = f"https://api.tryleap.ai/api/v1/images/models/{model_id}/inferences/{inference_id}"
+
+    response = requests.get(url, headers=HEADERS)
+    data = json.loads(response.text)
+
+    inference_id = data["id"]
+    state = data["state"]
+    images = None
+
+    if len(data["images"]):
+        images = data["images"]
+
+    print(f"Inference ID: {inference_id}. State: {state}")
+
+    return inference_id, state, images
+
+# modelID refers to Realistic Vision model. We can now use it to generate images from.
+# For more models go here: https://docs.tryleap.ai/reference/pre-trained-models
+model_id = "eab32df0-de26-4b83-a908-a83f3015e971"
+inference_id, status = generate_image(
+    model_id,
+    prompt="close up of face of beautiful woman fashion model in white feather clothes, official balmain editorial, dramatic lighting highly detailed, with new york city in the background"
+)
+while status != "finished":
+    time.sleep(10)
+    inference_id, status, images = get_inference_job(model_id, inference_id)
+
+for image in images:
+    print("Image ready:", image["uri"])
+```
+
+#### Creating custom models using API
+
+To use custom models trained via fine-tuning, you can create a new model using the API.
+
+First, you need to specify the type of subject (subjectType) you are training on: person, man, woman, animal, or style. Then choose a name,
+and create it as described in 
+[Create Model](https://reference.tryleap.ai/reference/createmodel) endpoint documentation.
+
+You will also need a subjectKeyword, which is the keyword you will use during inference (generating images) to trigger the specific styles. We recommend `@me` or our default: `@subject`.
+
+
+Next, you need to get samples for the model you want to train.
+The samples you provide are critical. Their quality plays the biggest role.
+Once you have the samples ready, upload them via urls as described in 
+[Upload Samples](https://reference.tryleap.ai/reference/samplescontroller_createurl) endpoint documentation. You can also upload the files directly [here](https://reference.tryleap.ai/reference/samplescontroller_create-1).
+
+Finally, once your samples are uploaded successfully, you can queue your model to train as described in [Queue Training Job](https://reference.tryleap.ai/reference/queuetrainingjob) endpoint documentation. 
+
+Training typically takes around 20 mins and you'll get an email when it's ready. You can provide a webhookUrl that will be called when that will be called when the model is done training. You can also specify the baseWeightsId used to train from any of the pre-trained models [here](/public-models).
+
+Once your model is ready, get its ID from the [GET models endpoint](https://reference.tryleap.ai/reference/listallmodels),
+and you’re ready to generate images. 
+
+Here is a `python` example implementing custom model finetuning with image generation. Get your [API Key](authentication) first
+and try it out! You can also run it in Google Colab [here](https://colab.research.google.com/drive/1v45UprB-fzSeWk4wTnYJEx4dEeW2DnYw?usp=sharing#scrollTo=oh3n9k2M910E).
+
+```python
+import requests
+import json
+import time
+
+API_KEY = "YOUR API KEY GOES HERE"
+
+HEADERS = {
+    "accept": "application/json",
+    "content-type": "application/json",
+    "authorization": f"Bearer {API_KEY}"
+}
+
+IMAGES = [
+    "URL to photo 1",
+    "URL to photo 2",
+    "URL to photo 3",
+    "URL to photo 4",
+    "URL to photo 5",
+]
+
+def create_model(title):
+    url = "https://api.tryleap.ai/api/v1/images/models"
+
+    payload = {
+        "title": title,
+        "subjectKeyword": "@me"
+    }
+
+    response = requests.post(url, json=payload, headers=HEADERS)
+
+    model_id = json.loads(response.text)["id"]
+    return model_id
+
+
+def upload_image_samples(model_id):
+    url = f"https://api.tryleap.ai/api/v1/images/models/{model_id}/samples/url"
+
+    payload = {"images": IMAGES}
+    response = requests.post(url, json=payload, headers=HEADERS)
+
+
+def queue_training_job(model_id):
+    url = f"https://api.tryleap.ai/api/v1/images/models/{model_id}/queue"
+    response = requests.post(url, headers=HEADERS)
+    data = json.loads(response.text)
+
+    print(response.text)
+
+    version_id = data["id"]
+    status = data["status"]
+
+    print(f"Version ID: {version_id}. Status: {status}")
+
+    return version_id, status
+
+
+def get_model_version(model_id, version_id):
+    url = f"https://api.tryleap.ai/api/v1/images/models/{model_id}/versions/{version_id}"
+    response = requests.get(url, headers=HEADERS)
+    data = json.loads(response.text)
+
+    version_id = data["id"]
+    status = data["status"]
+
+    print(f"Version ID: {version_id}. Status: {status}")
+
+    return version_id, status
+
+
+def generate_image(model_id, prompt):
+    url = f"https://api.tryleap.ai/api/v1/images/models/{model_id}/inferences"
+
+    payload = {
+        "prompt": prompt,
+        "steps": 50,
+        "width": 512,
+        "height": 512,
+        "numberOfImages": 1,
+        "seed": 4523184
+    }
+
+    response = requests.post(url, json=payload, headers=HEADERS)
+    data = json.loads(response.text)
+
+    inference_id = data["id"]
+    status = data["status"]
+
+    print(f"Inference ID: {inference_id}. Status: {status}")
+
+    return inference_id, status
+
+
+def get_inference_job(model_id, inference_id):
+    url = f"https://api.tryleap.ai/api/v1/images/models/{model_id}/inferences/{inference_id}"
+
+    response = requests.get(url, headers=HEADERS)
+    data = json.loads(response.text)
+
+    inference_id = data["id"]
+    state = data["state"]
+    image = None
+
+    if len(data["images"]):
+        image = data["images"][0]["uri"]
+
+    print(f"Inference ID: {inference_id}. State: {state}")
+
+    return inference_id, state, image
+
+
+# Let's create a custom model so we can fine tune it.
+model_id = create_model("Sample")
+
+# We now upload the images to fine tune this model.
+upload_image_samples(model_id)
+
+# Now it's time to fine tune the model. Notice how I'm continuously 
+# getting the status of the training job and waiting until it's
+# finished before moving on.
+version_id, status = queue_training_job(model_id)
+while status != "finished":
+    time.sleep(10)
+    version_id, status = get_model_version(model_id, version_id)
+
+# Now that we have a fine-tuned version of a model, we can
+# generate images using it. Notice how I'm using '@me' to 
+# indicate I want pictures similar to the ones we upload to 
+# fine tune this model.
+inference_id, status = generate_image(
+    model_id, 
+    prompt="a psychedelic portrait of @me, vibrant color scheme, highly detailed, in the style of romanticism, cinematic, artstation, moebius, greg rutkowski"
+)
+while status != "finished":
+    time.sleep(10)
+    inference_id, status, image = get_inference_job(model_id, inference_id)
+
+print(image)
+
+```
+
+## Need Assistance?
+
+For queries or further assistance, kindly reach out via email at [help@tryleap.ai](mailto:help@tryleap.ai).

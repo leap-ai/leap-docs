@@ -8,7 +8,7 @@ import { SiTypescript } from "react-icons/si";
 import { externalLinks } from "../utils/external-links";
 import { internalLinks } from "../utils/internal-links";
 
-export function SelectionCard({
+export function SelectionCardSecondary({
   title,
   description,
   href,
@@ -62,12 +62,12 @@ export function SelectionCard({
   );
 }
 
-export function CardGrid({ children }: { children: ReactNode }) {
+export function CardGridSecondary({ children }: { children: ReactNode }) {
   return (
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(270px, 1fr))",
+        gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
         justifyContent: "flex-start",
         gap: "15px",
         marginTop: "30px",
@@ -79,33 +79,33 @@ export function CardGrid({ children }: { children: ReactNode }) {
   );
 }
 
-export function QuickStartCards() {
+export function ExampleBuilds() {
   return (
-    <CardGrid>
-      {/* <SelectionCard
-        title="Upgrade subscription"
-        description="Unlock more images and features by upgrading your subscription."
-        href={externalLinks.pricing}
-        icon={<MdWorkspacePremium size={26} />}
-      /> */}
-      <SelectionCard
-        title="Develop with Typescript SDK"
-        description="Get started with our TypeScript / JavaScript SDKs."
-        href={internalLinks.typeScriptSdk}
-        icon={<SiTypescript size={26} />}
+    <CardGridSecondary>
+      <SelectionCardSecondary
+        title="Ambience"
+        description="Chrome Extension displaying new AI wallpapers every hour."
+        href={internalLinks.builds_ambience}
+        icon={<FaGithub size={26} />}
       />
-      <SelectionCard
-        title="Develop with API"
-        description="Call our HTTP endpoints directly from any language, including Python, Java, and more."
-        href={externalLinks.apiReference}
-        icon={<FaCode size={26} />}
+      <SelectionCardSecondary
+        title="Remix My Face"
+        description="Upload a selfie and generate a custom avatar."
+        href={internalLinks.builds_remixMyFace}
+        icon={<FaGithub size={26} />}
       />
-      <SelectionCard
-        title="Get API key"
-        description="Experience seamless integration with our API by getting your API key."
-        href={internalLinks.authentication}
-        icon={<HiOutlineKey size={26} />}
+      <SelectionCardSecondary
+        title="Draw It"
+        description="Sketch something and turn it into an image."
+        href={internalLinks.builds_drawIt}
+        icon={<FaGithub size={26} />}
       />
-    </CardGrid>
+      <SelectionCardSecondary
+        title="Wallpapers"
+        description="Browse and download AI generated wallpapers."
+        href={internalLinks.builds_wallpapersFyi}
+        icon={<FaGithub size={26} />}
+      />
+    </CardGridSecondary>
   );
 }

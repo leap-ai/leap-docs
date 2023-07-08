@@ -3,10 +3,117 @@ title: "Training Models"
 date: "2023-5-31"
 ---
 
-## Training Models
-Under construction - coming soon!
+# Training Models
+Custom models enable you to teach AI about custom people, objects, or even styles that you want to generate.
 
-* Creating Custom Model
-* Uploading Image Samples
-* Training Custom Model
-* Generating Images with a Custom Model
+They allow you to go beyond the limitations of the public models. 
+
+The process for training a custom model is as follows:
+1. Create a model
+2. Upload image samples
+3. Train the model
+4. Generate images with the model
+
+Custom models take the image samples you upload them, and learn about them in order to then be able to generate new images based on what they've learned.
+
+## Creating Custom Model
+
+To get started, you'll need to create a Model. This is only the "shell" and won't actually do much until you upload image samples and train it.
+
+
+```ts copy
+import { ModelSubjectTypesEnum } from "@leap-ai/sdk";
+
+const { data, error } = await leap.fineTune.createModel({
+    title: "My Avatars",
+    subjectKeyword: "@subject",
+    subjectType: ModelSubjectTypesEnum.PERSON,
+});
+```
+
+The `subjectKeyword` is a keyword that will be used in the prompt to indicate where the subject should be placed. For example, if you set the `subjectKeyword` to `@subject` then you can use the prompt `A photo of @subject` and the model will know to place the subject in the image.
+
+The `subjectType` is the type of subject that the model will be trained to generate. This can be one of the following:
+
+```ts copy
+enum ModelSubjectTypesEnum {
+  /** An animal */
+  ANIMAL = "Animal",
+  /** Photos of a boy */
+  BOY = "Boy",
+  /** A businessman */
+  BUSINESSMAN = "Businessman",
+  /** A businesswoman */
+  BUSINESSWOMAN = "Businesswoman",
+  /** Photos of a cat */
+  CAT = "Cat",
+  /** Photos of a dog */
+  DOG = "Dog",
+  /** Photos of a girl */
+  GIRL = "Girl",
+  /** Photos of a man */
+  MAN = "Man",
+  /** Photos of a person */
+  PERSON = "Person",
+  /** A style, which is more general than a specific type of subject. */
+  STYLE = "Style",
+  /** Photos of a woman */
+  WOMAN = "Woman",
+}
+```
+
+
+## Uploading Image Samples
+
+In order to train your model, you will need to provide Image Samples that the model can learn from.
+
+The SDK allows you to pass in an array of image URLs, but if you dont have the images hosted or simply prefer to give us the images directly, you can use the [Upload Images HTTP endpoint](https://reference.tryleap.ai/reference/samplescontroller_create-1) instead.
+
+```ts copy
+const { data, error } = await leap.fineTune.uploadImageSamples({
+    modelId: "5f9b1b1a-5f9b-1b1a-5f9b-1b1a5f9b1b1a",
+    images: [
+        "https://my-image-bucket.com/image1.jpg",
+        "https://my-image-bucket.com/image2.jpg",
+        "https://my-image-bucket.com/image3.jpg",
+    ],
+});
+```
+
+## Training Custom Model
+
+Once you've created the model and uploaded samples you'll need to queue it for training.
+
+```ts copy
+const { data, error } = await leap.fineTune.queueTrainingJob({
+    modelId: "5f9b1b1a-5f9b-1b1a-5f9b-1b1a5f9b1b1a",
+    webhookUrl: "https://my-webhook-url.com", // optional
+});
+```
+
+This process usually takes about 20 minutes. The SDK call will simply submit the training job but it will not wait for it to complete.
+
+There are two ways to know when the training job is complete:
+* You can provide a webhookUrl when you queue the training job. We will send a POST request to that URL when the training job is complete.
+* You can poll the training job status using the `getTrainingJob` method.
+
+```ts copy
+const { data, error } = await leap.fineTune.getModelVersion({
+    modelId: "5f9b1b1a-5f9b-1b1a-5f9b-1b1a5f9b1b1a",
+    versionId: "12f9b1b1-5f9b-1b1a-5f9b-1b1a5f9b1b1a",
+});
+```
+
+
+## Generating Images with a Custom Model
+
+After your model has been trained you can generate images with it.
+
+To use your custom model, simply pass the newly created modelId to the `generateImage` or `createInferenceJob` methods.
+
+```ts copy
+const { data, error } = await leap.generate.generateImage({
+  prompt: "A photo of a cat",
+  modelId: "eab32df0-de26-4b83-a908-a83f3015e971", // the id of a public or custom model
+});
+```
