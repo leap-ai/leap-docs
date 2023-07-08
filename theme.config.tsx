@@ -32,6 +32,7 @@ const config: DocsThemeConfig = {
     const url =
       "https://docs.tryleap.ai" +
       (defaultLocale === locale ? asPath : `/${locale}${asPath}`);
+    const googleAnalyticsId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
 
     return (
       <>
@@ -45,6 +46,17 @@ const config: DocsThemeConfig = {
           property="og:description"
           content={frontMatter.description || "Add AI to your app in minutes."}
         />
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+        ></script>
+        <script>
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', '${googleAnalyticsId}');`}
+        </script>
       </>
     );
   },
