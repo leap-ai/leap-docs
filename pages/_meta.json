@@ -4,11 +4,8 @@
   },
   "authentication": "Authentication",
   "sdk": "TypeScript SDK",
-
   "builds": "Builds",
-
   "blog": "Guides",
-
   "contact": {
     "title": "API Reference ↗",
     "type": "page",
