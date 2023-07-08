@@ -5,6 +5,9 @@ date: "2023-5-31"
 
 import { Tab, Tabs, Callout } from "nextra-theme-docs";
 import { internalLinks } from "../../utils/internal-links";
+import { CardGrid, SelectionCard } from "../../components/IntroductionCards";
+import { HiOutlineCog, HiOutlinePhotograph } from "react-icons/hi";
+
 
 # TypeScript SDK
 
@@ -63,109 +66,19 @@ export { leap };
   The Leap SDK is meant to be used server-side. It is important that you do not expose your API key to the client-side, as this would allow anyone to use your account.
 </Callout>
 
-## Generating Images
+## Next steps
 
-To generate an image simply call the `generateImage` method on your `Leap` instance. You must pass in a prompt, and any other options you'd like to use. 
-
-```ts copy
-const { data, error } = await leap.generate.generateImage({
-  prompt: "A photo of a cat",
-  negativePrompt: "blurry, low quality",
-  numberOfImages: 1,
-  width: 512,
-  height: 512,
-  steps: 60,
-});
-```
-By default your image will be generated using the Stable Diffusion 1.5 Model, but you can pass in a different `modelId` if you'd like.
-
-```ts copy
-const { data, error } = await leap.generate.generateImage({
-  prompt: "A photo of a cat",
-  modelId: "eab32df0-de26-4b83-a908-a83f3015e971", // the id of a public or custom model
-});
-```
-
-For a list of all available public models and their IDs, you can visit the {<a href={internalLinks.publicModels}>public models</a>} page.
-
-Once your generation has completed, you will receive a response with the generation job containing the generated images (if successful). For example:
-
-```ts copy
-console.log(data);
-```
-
-```bash copy
-{
-  "id": "abc123",
-  "createdAt": "2023-07-04T20:55:54.644Z",
-  "prompt": "A photo of a cat",
-  "negativePrompt": "blurry, low quality",
-  "seed": 456465,
-  "width": 512,
-  "height": 512,
-  "promptStrength": 7.5,
-  "numberOfImages": 4,
-  "state": "finished",
-  "steps": 50,
-  "images": [
-    {
-      "id": "img001",
-      "createdAt": "2023-07-04T20:56:54.644Z",
-      "uri": "https://leap-api-prod.s3.amazonaws.com/.../img001.png",
-    },
-    ...
-  ],
-  "modelId": [
-    "eab32df0-de26-4b83-a908-a83f3015e971"
-  ],
-  "upscalingOption": "superResolution"
-}
-```
-
-
-### Asynchronous Generation
-
-Depending on whether you're using a serverless backend (such as Next.js) or not, you may need to generate images asynchronously. 
-
-Generating images can be done two ways:
-* `leap.generate.generateImage`: Submit generation request, and then wait for results to finish.
-* `leap.generate.createInferenceJob`: Submit generation request, and resolve right away.
-
-
-Awaiting `leap.generate.generateImage` on a serverless environment, may cause your function to time out. If you're using a serverless backend, we recommend using `leap.generate.createInferenceJob` instead.
-
-```ts
-const { data, error } = await leap.generate.createInferenceJob({
-  prompt: "A photo of a cat",
-});
-```
-
-When using `createInferenceJob`, you will receive a response with the generation job containing the generation job, but with an empty image array and the status will be set to `queued` or `processing`. For example:
-
-```shell copy
-{
-  "id": "abc123",
-  "createdAt": "2023-07-04T20:55:54.644Z",
-  "prompt": "A photo of a cat",
-  "state": "queued",
-  "images": [],
-  ... // other fields
-}
-```
-
-You can then use the `id` of the generation job to fetch the results later on. Or you can take advantage of our webhooks to receive a notification with the job payload when the generation job is complete.
-
-
-### Retrieving Images
-Under construction - coming soon!
-
-### Deleting Images
-Under construction - coming soon!
-
-## Training Models
-Under construction - coming soon!
-
-* Creating Custom Model
-* Uploading Image Samples
-* Training Custom Model
-* Generating Images with a Custom Model
+<CardGrid>
+  <SelectionCard
+        title="Generating Images"
+        description="View methods for generating images."
+        href={internalLinks.typeScriptSdk_images}
+        icon={<HiOutlinePhotograph size={26} />}
+    />
+  <SelectionCard
+        title="Training Models"
+        description="View methods for uploading samples, and training models."
+        href={internalLinks.typeScriptSdk_models}
+        icon={<HiOutlineCog size={26} />}
+    />
+</CardGrid>

@@ -1,12 +1,12 @@
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { ReactNode, useState } from "react";
+import { FaCode } from "react-icons/fa";
+import { HiOutlineKey } from "react-icons/hi";
+import { MdWorkspacePremium } from "react-icons/md";
+import { SiTypescript } from "react-icons/si";
 import { externalLinks } from "../utils/external-links";
 import { internalLinks } from "../utils/internal-links";
-import { SiTypescript } from "react-icons/si";
-import { HiOutlineKey } from "react-icons/hi";
-import { FaCode } from "react-icons/fa";
-import { MdWorkspacePremium } from "react-icons/md";
 
 export function SelectionCard({
   title,
@@ -62,7 +62,7 @@ export function SelectionCard({
   );
 }
 
-export function QuickStartCards() {
+export function CardGrid({ children }: { children: ReactNode }) {
   return (
     <div
       style={{
@@ -74,11 +74,25 @@ export function QuickStartCards() {
         maxWidth: "750px",
       }}
     >
+      {children}
+    </div>
+  );
+}
+
+export function QuickStartCards() {
+  return (
+    <CardGrid>
       <SelectionCard
         title="Get API key"
         description="Experience seamless integration with our API by getting your API key."
         href={internalLinks.authentication}
         icon={<HiOutlineKey size={26} />}
+      />
+      <SelectionCard
+        title="Upgrade subscription"
+        description="Unlock more images and features by upgrading your subscription."
+        href={externalLinks.pricing}
+        icon={<MdWorkspacePremium size={26} />}
       />
       <SelectionCard
         title="Develop with API"
@@ -92,13 +106,6 @@ export function QuickStartCards() {
         href={internalLinks.typeScriptSdk}
         icon={<SiTypescript size={26} />}
       />
-
-      <SelectionCard
-        title="Upgrade subscription"
-        description="Unlock more images and features by upgrading your subscription."
-        href={externalLinks.pricing}
-        icon={<MdWorkspacePremium size={26} />}
-      />
-    </div>
+    </CardGrid>
   );
 }

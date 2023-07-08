@@ -1,0 +1,94 @@
+# Type Definitions
+
+This section describes the different types that are used across the Leap SDK. They help enforcing the correct structure and validation of the data when you interact with the API, ensuring predictability and stability.
+
+## LeapImageSchema
+
+This type is used to represent an image that has been produced by a Leap inference job. Each image has a unique `id` and a `uri` for locating the image. The `createdAt` field indicates the timestamp when the image was generated.
+
+```ts copy
+export type LeapImageSchema = {
+  id: string; // Unique identifier for the image
+  uri: string; // Uniform Resource Identifier for accessing the image
+  createdAt: string; // Timestamp indicating when the image was created
+};
+```
+
+## LeapInferenceSchema
+
+This type defines the structure of an inference job, including several key fields such as `id`, `createdAt`, `prompt`, `seed` and many more. These various fields provide comprehensive details about the generation job.
+
+```ts copy
+export type LeapInferenceSchema = {
+  id: string; 
+  createdAt: string; 
+  prompt: string; 
+  seed: number; 
+  width: number; 
+  height: number; 
+  numberOfImages: number; 
+  state: "queued" | "failed" | "finished" | "processing";
+  steps: number; 
+  images: LeapImageSchema[]; // Array of images produced by the inference job.
+  modelId: string[]; 
+};
+```
+
+## LeapModelSchema 
+
+This type provides a blueprint for describing the model used in the image generation process. It includes essential attributes such as `id`, `title`, `subjectKeyword`, and `subjectIdentifier`.
+
+```ts copy
+export type LeapModelSchema = {
+  id: string; // Model's unique identifier
+  title: string; // Model's name
+  subjectKeyword: string; 
+  subjectIdentifier: string;
+};
+```
+
+## LeapSampleSchema
+
+This type serves to encapsulate the sample image details. It spans across three parameters - `id`, `createdAt`, and `uri`, providing complete information about a sample.
+
+```ts copy
+export type LeapSampleSchema = {
+  id: string; // Sample's unique identifier
+  createdAt: string; // Timestamp indicating when the sample was created
+  uri: string; // Uniform Resource Identifier for accessing the sample
+};
+```
+
+## LeapVersionSchema
+
+This type demonstrates the versioning information and model details for an image generation process. It includes various attributes like `id`, `createdAt`, `status`, `model`, `weights`.
+
+```ts copy
+export type LeapVersionSchema = {
+  id: string; 
+  createdAt: string; 
+  status: "queued" | "failed" | "finished" | "processing"; 
+  model: {  // Model details
+    id: string; 
+    title: string; 
+    subjectKeyword: string; 
+    subjectIdentifier: string; 
+  }; 
+  weights: {
+    uri: string; 
+    id: string; 
+  };
+};
+```
+
+## LeapAPIError
+
+This type is used to handle error scenarios encountered while interacting with the Leap API. It comprises of `statusCode`, `message`, `error` to clearly indicate the nature of the error.
+
+```ts copy
+export type LeapAPIError = {
+  statusCode: number; // HTTP status code
+  message: string[]; // Error description
+  error: string; // Error type
+};
+```

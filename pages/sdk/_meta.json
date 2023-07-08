@@ -1,4 +1,8 @@
 {
   "typescript-sdk": "Getting Started",
-  "webhooks": "Webhooks"
+  "generating-images": "Generating Images",
+  "training-models": "Training Models",
+  "webhooks": "Webhooks",
+  "types": "Types",
+  "bugs-and-feedback": "Bugs / Feedback"
 }
