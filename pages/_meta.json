@@ -6,6 +6,7 @@
   "sdk": "TypeScript SDK",
   "builds": "Builds",
   "blog": "Guides",
+  "pricing": "Pricing",
   "contact": {
     "title": "Go to App ↗",
     "type": "page",
