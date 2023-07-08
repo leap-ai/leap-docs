@@ -7,9 +7,9 @@
   "builds": "Builds",
   "blog": "Guides",
   "contact": {
-    "title": "API Reference ↗",
+    "title": "Go to App ↗",
     "type": "page",
-    "href": "https://reference.tryleap.ai",
+    "href": "https://app.tryleap.ai",
     "newWindow": true
   }
 }
