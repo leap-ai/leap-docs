@@ -1,27 +1,14 @@
 {
-  "--": {
-    "type": "separator",
-    "title": "Quick Start"
-  },
   "index": {
     "title": "Introduction"
   },
   "authentication": "Authentication",
   "sdk": "TypeScript SDK",
-  "---": {
-    "type": "separator",
-    "title": "Demo Builds"
-  },
+
   "builds": "Builds",
-  "----": {
-    "type": "separator",
-    "title": "Guides"
-  },
+
   "blog": "Guides",
-  "-----": {
-    "type": "separator",
-    "title": "Policies"
-  },
+
   "contact": {
     "title": "API Reference ↗",
     "type": "page",

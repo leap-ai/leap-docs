@@ -21,6 +21,6 @@ Use-Cases Not Allowed:
 
 If you're only looking to generate NSFW images using public models, you can head over to the project Settings page and toggle NSFW to allow unsafe prompts.
 
-![](./images/nsfw.png)
+![](./images/nsfw.jpg)
 
 This will only enable unsafe prompts to work on public models. Generating using unsafe prompts in custom models is forbidden.
