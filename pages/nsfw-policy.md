@@ -17,6 +17,10 @@ Use-Cases Not Allowed:
 - Uploading nudes as image samples when training fine-tuned models.
 - Anything illegal in your home country/region.
 
-Paid projects may request NSFW filters to be disabled on pre-trained public models.
+# Enabling NSFW Generations
 
-If you believe your use-case does not violate this policy, your project is on a paid plan, and you would like to request us disabling NSFW filters on your workspace, please contact us at help@tryleap.ai and provide your projectId.
+If you're only looking to generate NSFW images using public models, you can head over to the project Settings page and toggle NSFW to allow unsafe prompts.
+
+![](./images/nsfw.png)
+
+This will only enable unsafe prompts to work on public models. Generating using unsafe prompts in custom models is forbidden.
