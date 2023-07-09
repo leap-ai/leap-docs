@@ -19,6 +19,16 @@ If you are on the free tier and train a model, it will only be retained for 7 da
 
 Log into your account and within the desired project you wish to upgrade, click on the "Upgrade" button on the top navbar.
 
+### Setting a Billing Limit
+
+To set a billing limit on an upgraded project simply head over to the "Usage" section in your project (click on the Usage button on the top right corner), and then scroll down to Billing Limit.
+
+By setting a billing limit, any API or dashboard requests that exceed the limit you set will automatically fail.
+
+This is useful while developing to prevent runaway code, or in production to control your costs.
+
+![](./images/spending-limit.png)
+
 ### How to Cancel
 
 You can cancel any time by logging into your account on Leap, clicking on the "View Usage" button within your project, and then selecting "Manage Account".
