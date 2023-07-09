@@ -27,7 +27,7 @@ By setting a billing limit, any API or dashboard requests that exceed the limit 
 
 This is useful while developing to prevent runaway code, or in production to control your costs.
 
-![](./images/spending-limit.png)
+![](./images/spending-limit.jpg)
 
 ### How to Cancel
 
