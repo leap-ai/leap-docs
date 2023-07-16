@@ -4,7 +4,7 @@
   },
   "authentication": "Authentication",
   "sdk": "TypeScript SDK",
-  "api": "RESTful API",
+  "api-docs": "RESTful API",
   "builds": "Builds",
   "blog": "Guides",
   "pricing": "Pricing",
