@@ -86,13 +86,13 @@ Here are the outputs:
 
 **Output:**
 
-![](./images/create-style-consistent-assets-with-ai_7.png)
+![](./images/create-style-consistent-assets-with-ai_8.png)
 
 **Prompt:** `a @subject style icon of a coffee cup, black background, orange forefront`
 
 **Output:**
 
-![](./images/create-style-consistent-assets-with-ai_8.png)
+![](./images/create-style-consistent-assets-with-ai_7.png)
 
 ### Prompt Consulting Support
 
