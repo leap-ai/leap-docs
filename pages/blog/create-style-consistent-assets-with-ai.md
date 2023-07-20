@@ -20,7 +20,7 @@ Meet Mylene. She created a website [https://fromastranger.com](https://fromastra
 
 She created a few line-art design style illustrations for each letter, and then came to Leap to automate the creation process.
 
-![](./How To Generate Style-Consistent Assets\_ Finetuning on Leap_files/Screen-Shot-2023-07-20-at-10.43.25-AM.png)
+![](https://cdn.getmidnight.com/0915da4d5aad32cf7f0377582a72cc6e/2023/07/Screen-Shot-2023-07-20-at-10.43.25-AM.png)
 
 To do so, she went to Leap and trained a custom line-art model in just a few minutes.
 
