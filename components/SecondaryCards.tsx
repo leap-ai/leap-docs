@@ -83,6 +83,12 @@ export function ExampleBuilds() {
   return (
     <CardGridSecondary>
       <SelectionCardSecondary
+        title="Wallpapers"
+        description="Browse and download AI generated wallpapers."
+        href={internalLinks.builds_wallpapersFyi}
+        icon={<FaGithub size={26} />}
+      />
+      <SelectionCardSecondary
         title="Ambience"
         description="Chrome Extension displaying new AI wallpapers every hour."
         href={internalLinks.builds_ambience}
@@ -98,12 +104,6 @@ export function ExampleBuilds() {
         title="Draw It"
         description="Sketch something and turn it into an image."
         href={internalLinks.builds_drawIt}
-        icon={<FaGithub size={26} />}
-      />
-      <SelectionCardSecondary
-        title="Wallpapers"
-        description="Browse and download AI generated wallpapers."
-        href={internalLinks.builds_wallpapersFyi}
         icon={<FaGithub size={26} />}
       />
     </CardGridSecondary>

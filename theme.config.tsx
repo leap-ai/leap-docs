@@ -17,7 +17,7 @@ const config: DocsThemeConfig = {
     text: "Leap Docs",
   },
   sidebar: {
-    autoCollapse: true,
+    autoCollapse: false,
     defaultMenuCollapseLevel: 1,
   },
 

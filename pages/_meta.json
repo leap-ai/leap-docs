@@ -6,12 +6,17 @@
   "sdk": "TypeScript SDK",
   "api-docs": "RESTful API",
   "builds": "Builds",
-  "blog": "Guides",
   "pricing": "Pricing",
   "contact": {
     "title": "Go to Leap ↗",
     "type": "page",
     "href": "https://app.tryleap.ai",
+    "newWindow": true
+  },
+  "blog": {
+    "title": "Blog ↗",
+    "type": "page",
+    "href": "https://blog.tryleap.ai",
     "newWindow": true
   }
 }

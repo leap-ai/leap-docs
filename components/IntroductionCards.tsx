@@ -8,6 +8,8 @@ import { SiTypescript } from "react-icons/si";
 import { externalLinks } from "../utils/external-links";
 import { internalLinks } from "../utils/internal-links";
 
+import { BsPerson } from "react-icons/bs";
+
 export function SelectionCard({
   title,
   description,
@@ -89,6 +91,18 @@ export function QuickStartCards() {
         icon={<MdWorkspacePremium size={26} />}
       /> */}
       <SelectionCard
+        title="Set up Leap account"
+        description="Start generating premium content with AI by signing up for Leap."
+        href={internalLinks.leap_homepage}
+        icon={<BsPerson size={26} />}
+      />
+      <SelectionCard
+        title="Get API key"
+        description="Experience seamless integration with our API by getting your API key."
+        href={internalLinks.authentication}
+        icon={<HiOutlineKey size={26} />}
+      />
+      <SelectionCard
         title="Develop with Typescript SDK"
         description="Get started with our TypeScript / JavaScript SDKs."
         href={internalLinks.typeScriptSdk}
@@ -99,12 +113,6 @@ export function QuickStartCards() {
         description="Call our HTTP endpoints directly from any language, including Python, Java, and more."
         href={externalLinks.apiReference}
         icon={<FaCode size={26} />}
-      />
-      <SelectionCard
-        title="Get API key"
-        description="Experience seamless integration with our API by getting your API key."
-        href={internalLinks.authentication}
-        icon={<HiOutlineKey size={26} />}
       />
     </CardGrid>
   );
