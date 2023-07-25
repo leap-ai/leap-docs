@@ -20,9 +20,28 @@ To generate an image simply call the `music.` method on your `Leap` instance. Yo
 
 Generating music takes between 30 seconds and 3 minutes in most cases, this depends on the duration you set. 
 
+This will submit the job and then immediately return with the status of the job being `queued`. To retrieve the result simply call the `listMusicGenerationJobs` method. 
+
+# Retrieving Music
+
 ```ts copy
   const { data, error } = await leap.music.listMusicGenerationJobs();
 ```
+
+# Types
+
+Generating music will return a single `LeapMusicSchema` object, and fetching the list will return an array of `LeapMusicSchema` objects.
+
+```ts copy
+export type LeapMusicSchema = {
+    id: string;
+    createdAt: string;
+    state: "queued" | "failed" | "finished" | "processing";
+    prompt: string;
+    media_uri: string | null;
+};
+```
+
 ## In Progress
 
 Music endpoint does not yet support webhooks, but we do plan on adding this soon.
