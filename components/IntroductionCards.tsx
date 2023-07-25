@@ -93,7 +93,7 @@ export function QuickStartCards() {
       <SelectionCard
         title="Set up Leap account"
         description="Start generating premium content with AI by signing up for Leap."
-        href={internalLinks.leap_homepage}
+        href={externalLinks.leap_signup}
         icon={<BsPerson size={26} />}
       />
       <SelectionCard
@@ -111,7 +111,7 @@ export function QuickStartCards() {
       <SelectionCard
         title="Develop with API"
         description="Call our HTTP endpoints directly from any language, including Python, Java, and more."
-        href={externalLinks.apiReference}
+        href={internalLinks.restful_api}
         icon={<FaCode size={26} />}
       />
     </CardGrid>

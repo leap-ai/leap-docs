@@ -12,5 +12,5 @@ export const internalLinks = {
   builds_remixMyFace: "/builds/remix-my-face",
   builds_drawIt: "/builds/draw-it",
   builds_wallpapersFyi: "https://github.com/leap-ai/wallpapers-ai",
-  leap_homepage: "https://tryleap.ai",
+  restful_api: "/api-docs/images",
 };
