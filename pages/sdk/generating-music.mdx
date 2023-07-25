@@ -1,0 +1,30 @@
+---
+title: "Music"
+date: "2023-7-25"
+---
+
+import { Tab, Tabs, Callout } from "nextra-theme-docs";
+import { internalLinks } from "../../utils/internal-links";
+
+
+## Generating Music
+
+To generate an image simply call the `music.` method on your `Leap` instance. You must pass in a prompt, and set the duration. 
+
+```ts copy
+  const { data, error } = await leap.music.submitMusicGenerationJob({
+    prompt: prompt,
+    duration: duration,
+  });
+```
+
+Generating music takes between 30 seconds and 3 minutes in most cases, this depends on the duration you set. 
+
+```ts copy
+  const { data, error } = await leap.music.listMusicGenerationJobs();
+```
+## In Progress
+
+Music endpoint does not yet support webhooks, but we do plan on adding this soon.
+
+Please reach out to help@tryleap.ai and let us know what else you'd like us to add, or if you have any suggestions for how to improve this.
