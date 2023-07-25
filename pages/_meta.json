@@ -18,5 +18,11 @@
     "type": "page",
     "href": "https://blog.tryleap.ai",
     "newWindow": true
+  },
+  "status-report": {
+    "title": "Status",
+    "type": "page",
+    "href": "https://status.tryleap.ai/",
+    "newWindow": true
   }
 }
