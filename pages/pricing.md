@@ -21,13 +21,17 @@ Log into your account and within the desired project you wish to upgrade, click 
 
 ### Setting a Billing Limit
 
-To set a billing limit on an upgraded project simply head over to the "Usage" section in your project (click on the Usage button on the top right corner), and then scroll down to Billing Limit.
+To set or remove a billing limit on an upgraded project simply head over to the "Usage" section in your project (click on the Usage button on the top right corner), and then scroll down to Billing Limit.
+
+![](./images/spending-limit-1.jpg)
 
 By setting a billing limit, any API or dashboard requests that exceed the limit you set will automatically fail.
 
+![](./images/spending-limit-2.jpg)
+
 This is useful while developing to prevent runaway code, or in production to control your costs.
 
-![](./images/spending-limit.jpg)
+![](./images/spending-limit-3.jpg)
 
 ### How to Cancel
 
