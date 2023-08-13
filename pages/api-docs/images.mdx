@@ -6,13 +6,12 @@ date: "2023-5-4"
 #### Generating images using API
 Our text-to-image endpoint generates an image from a text prompt using a given model. The model used to generate the image is determined by the modelId parameter. An image job ID is returned that can be used to retrieve the generated image(s).
 
-We have curated a set of pre-trained, ‘default’ models which everyone can use to generate from [here](https://reference.tryleap.ai/reference/inferencescontroller_create-1). 
-You may also use custom models trained via fine-tuning.
+We have curated a set of [public models](/public-models) which anyone can use to generate following our API reference [here](https://reference.tryleap.ai/reference/inferencescontroller_create-1). 
 
-To get your custom models use `GET /v1/images/models` with your API key as described in the [Get Models](/api-reference/voices)
-endpoint documentation. You will need this ID to query the generete image endpoint.
+You may also use custom models trained via fine-tuning. To get your custom models use `GET /v1/images/models` with your API key as described in the [Get Models](https://reference.tryleap.ai/reference/listallmodels)
+endpoint documentation. You will need the model ID to query the generete image endpoint.
 
-Here is a `python` example implementing image generation with our pre-trained Realistic Vision model. Get your [API Key](authentication) first
+Here is a `python` example implementing image generation with our public Realistic Vision model. Get your [API Key](authentication) first
 and try it out! You can also run it in Google Colab [here](https://colab.research.google.com/drive/18-hR4ur6cLnYcwCPuYFhIgKjGvVpaUsO#scrollTo=_pXpe_iiCkqq).
 
 ```python
