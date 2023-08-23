@@ -111,7 +111,7 @@ export function QuickStartCards() {
       <SelectionCard
         title="Develop with API"
         description="Call our HTTP endpoints directly from any language, including Python, Java, and more."
-        href={internalLinks.restful_api}
+        href={"https://reference.tryleap.ai/"}
         icon={<FaCode size={26} />}
       />
     </CardGrid>
