@@ -13,8 +13,8 @@ To generate an image simply call the `music.` method on your `Leap` instance. Yo
 
 ```ts copy
   const { data, error } = await leap.music.submitMusicGenerationJob({
-    prompt: prompt,
-    duration: duration,
+    prompt: "An electronic music soundtrack with a trumpet solo",
+    duration: 15,
   });
 ```
 

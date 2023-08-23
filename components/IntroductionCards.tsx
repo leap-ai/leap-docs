@@ -81,7 +81,7 @@ export function CardGrid({ children }: { children: ReactNode }) {
   );
 }
 
-export function QuickStartCards() {
+export function IntroductionCards() {
   return (
     <CardGrid>
       {/* <SelectionCard

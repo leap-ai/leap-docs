@@ -8,6 +8,10 @@ import { SiTypescript } from "react-icons/si";
 import { externalLinks } from "../utils/external-links";
 import { internalLinks } from "../utils/internal-links";
 
+import { RiAiGenerate } from "react-icons/ri";
+import { FiMusic } from "react-icons/fi";
+import { BsImages } from "react-icons/bs";
+
 export function SelectionCardSecondary({
   title,
   description,
@@ -79,44 +83,26 @@ export function CardGridSecondary({ children }: { children: ReactNode }) {
   );
 }
 
-export function ExampleBuilds() {
+export function QuickStartCards() {
   return (
     <CardGridSecondary>
       <SelectionCardSecondary
-        title="Headshots"
-        description="Train a model and generate an avatar or headshot."
-        href={internalLinks.builds_avatars}
-        icon={<FaGithub size={26} />}
+        title="Generate Images"
+        description="Generate images simply with text."
+        href={internalLinks.typeScriptSdk_images}
+        icon={<BsImages size={26} />}
       />
       <SelectionCardSecondary
-        title="Wallpapers"
-        description="Browse and download AI generated wallpapers."
-        href={internalLinks.builds_wallpapersFyi}
-        icon={<FaGithub size={26} />}
+        title="Train Models"
+        description="Teach AI about people, objects, or even styles."
+        href={internalLinks.typeScriptSdk_models}
+        icon={<RiAiGenerate size={26} />}
       />
       <SelectionCardSecondary
-        title="Ambience"
-        description="Chrome Extension displaying new AI wallpapers every hour."
-        href={internalLinks.builds_ambience}
-        icon={<FaGithub size={26} />}
-      />
-      <SelectionCardSecondary
-        title="Cover Images"
-        description="Generate AI cover images."
-        href={internalLinks.builds_coverImages}
-        icon={<FaGithub size={26} />}
-      />
-      <SelectionCardSecondary
-        title="Remix My Face"
-        description="Upload a selfie and generate a custom avatar."
-        href={internalLinks.builds_remixMyFace}
-        icon={<FaGithub size={26} />}
-      />
-      <SelectionCardSecondary
-        title="Draw It"
-        description="Sketch something and turn it into an image."
-        href={internalLinks.builds_drawIt}
-        icon={<FaGithub size={26} />}
+        title="Generate Music"
+        description="Generate music simply with text."
+        href={internalLinks.typeScriptSdk_music}
+        icon={<FiMusic size={26} />}
       />
     </CardGridSecondary>
   );
