@@ -9,7 +9,7 @@ Get started for free, and upgrade if you want to keep going.
 
 Paid plans include a base quota for images. If you exceed the included quota, or want to train models, these are billed additional to your plan.
 
-![](./images/tiers.png)
+You can reference our up to date pricing by visiting our (Pricing Page)[https://tryleap.ai/pricing]
 
 ### Free Tier Policy
 
