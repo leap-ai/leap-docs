@@ -9,7 +9,7 @@
     "href": "https://reference.tryleap.ai/reference/inferencescontroller_create-1"
   },
   "builds": "Builds",
-  "pricing": "Pricing",
+  "billing": "Billing",
   "blog": {
     "title": "Blog ↗",
     "type": "page",
