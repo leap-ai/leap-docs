@@ -57,8 +57,8 @@ export function SelectionCard({
         >
           {icon}
         </div>
-        <h3 style={{ fontSize: "20px", fontWeight: "bold" }}>{title}</h3>
-        <p style={{ fontSize: "15px" }}>{description}</p>
+        <h3 style={{ fontSize: "16px", fontWeight: "bold" }}>{title}</h3>
+        <p style={{ fontSize: "14px" }}>{description}</p>
       </div>
     </Link>
   );
@@ -69,7 +69,7 @@ export function CardGrid({ children }: { children: ReactNode }) {
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(270px, 1fr))",
+        gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))",
         justifyContent: "flex-start",
         gap: "15px",
         marginTop: "30px",
@@ -81,7 +81,7 @@ export function CardGrid({ children }: { children: ReactNode }) {
   );
 }
 
-export function IntroductionCards() {
+export function SDKCards() {
   return (
     <CardGrid>
       {/* <SelectionCard
@@ -91,16 +91,28 @@ export function IntroductionCards() {
         icon={<MdWorkspacePremium size={26} />}
       /> */}
       <SelectionCard
-        title="Set up Leap account"
-        description="Start generating premium content with AI by signing up for Leap."
-        href={externalLinks.leap_signup}
-        icon={<BsPerson size={26} />}
+        title="RESTful API"
+        description="Get started with our HTTP endpoints."
+        href={"https://reference.tryleap.ai/"}
+        icon={<FaCode size={28} />}
       />
       <SelectionCard
-        title="Get API key"
-        description="Experience seamless integration with our API by getting your API key."
-        href={internalLinks.authentication}
-        icon={<HiOutlineKey size={26} />}
+        title="Typescript SDK"
+        description="Get started with our TypeScript SDKs."
+        href={externalLinks.typescriptSdk}
+        icon={<SiTypescript size={28} />}
+      />
+      <SelectionCard
+        title="Python SDK"
+        description="Get started with our Python SDK."
+        href={externalLinks.pythonSdk}
+        icon={<SiPython size={28} />}
+      />
+      <SelectionCard
+        title="Java SDK"
+        description="Get started with our Java SDK."
+        href={externalLinks.javaSdk}
+        icon={<FaJava size={28} />}
       />
     </CardGrid>
   );
