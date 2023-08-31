@@ -19,6 +19,7 @@
     "title": "RESTful API ↗",
     "href": "https://reference.tryleap.ai/reference/inferencescontroller_create-1"
   },
+  "webhooks": "Webhooks",
   "builds": "Builds",
   "billing": "Billing",
   "blog": {

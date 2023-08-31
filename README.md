@@ -2,7 +2,7 @@
 
 [![GitHub license](https://img.shields.io/github/license/leap-ai/leap-docs)](https://github.com/leap-ai/leap-docs/blob/master/LICENSE)
 ![GitHub stars](https://img.shields.io/github/stars/leap-ai/leap-docs)
-![Twitter Follow](https://img.shields.io/twitter/follow/leap?style=social)
+![Twitter Follow](https://img.shields.io/twitter/follow/leap_api?style=social)
 
 This is the technical document repository for Leap AI. It contains a comprehensive set of documents authored by Leap AI's engineering team.
 
