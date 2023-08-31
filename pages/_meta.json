@@ -3,7 +3,18 @@
     "title": "Introduction"
   },
   "authentication": "Authentication",
-  "sdk": "TypeScript SDK",
+  "typescript": {
+    "title": "TypeScript SDK ↗",
+    "href": "https://github.com/leap-ai/leap-sdks/blob/main/sdks/typescript/README.md"
+  },
+  "python": {
+    "title": "Python SDK ↗",
+    "href": "https://github.com/leap-ai/leap-sdks/blob/main/sdks/python/README.md"
+  },
+  "java": {
+    "title": "Java SDK ↗",
+    "href": "https://github.com/leap-ai/leap-sdks/blob/main/sdks/java/README.md"
+  },
   "api-docs": {
     "title": "RESTful API ↗",
     "href": "https://reference.tryleap.ai/reference/inferencescontroller_create-1"

@@ -1,10 +1,10 @@
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { ReactNode, useState } from "react";
-import { FaCode, FaGithub } from "react-icons/fa";
+import { FaCode, FaGithub, FaJava } from "react-icons/fa";
 import { HiOutlineKey } from "react-icons/hi";
 import { MdWorkspacePremium } from "react-icons/md";
-import { SiTypescript } from "react-icons/si";
+import { SiPython, SiTypescript } from "react-icons/si";
 import { externalLinks } from "../utils/external-links";
 import { internalLinks } from "../utils/internal-links";
 
@@ -105,12 +105,24 @@ export function IntroductionCards() {
       <SelectionCard
         title="Develop with Typescript SDK"
         description="Get started with our TypeScript / JavaScript SDKs."
-        href={internalLinks.typeScriptSdk}
+        href={externalLinks.typescriptSdk}
         icon={<SiTypescript size={26} />}
       />
       <SelectionCard
-        title="Develop with API"
-        description="Call our HTTP endpoints directly from any language, including Python, Java, and more."
+        title="Develop with Python SDK"
+        description="Get started with our Python SDK."
+        href={externalLinks.pythonSdk}
+        icon={<SiPython size={26} />}
+      />
+      <SelectionCard
+        title="Develop with Java SDK"
+        description="Get started with our Java SDK."
+        href={externalLinks.javaSdk}
+        icon={<FaJava size={26} />}
+      />
+      <SelectionCard
+        title="Develop with HTTP API"
+        description="Call our HTTP endpoints directly using any language."
         href={"https://reference.tryleap.ai/"}
         icon={<FaCode size={26} />}
       />
