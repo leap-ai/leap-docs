@@ -84,12 +84,6 @@ export function CardGrid({ children }: { children: ReactNode }) {
 export function IntroductionCards() {
   return (
     <CardGrid>
-      {/* <SelectionCard
-        title="Upgrade subscription"
-        description="Unlock more images and features by upgrading your subscription."
-        href={externalLinks.pricing}
-        icon={<MdWorkspacePremium size={26} />}
-      /> */}
       <SelectionCard
         title="Set up Leap account"
         description="Start generating premium content with AI by signing up for Leap."

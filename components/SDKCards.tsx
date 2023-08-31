@@ -84,12 +84,6 @@ export function CardGrid({ children }: { children: ReactNode }) {
 export function SDKCards() {
   return (
     <CardGrid>
-      {/* <SelectionCard
-        title="Upgrade subscription"
-        description="Unlock more images and features by upgrading your subscription."
-        href={externalLinks.pricing}
-        icon={<MdWorkspacePremium size={26} />}
-      /> */}
       <SelectionCard
         title="RESTful API"
         description="Get started with our HTTP endpoints."
