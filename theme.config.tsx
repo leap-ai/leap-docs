@@ -36,9 +36,10 @@ const config: DocsThemeConfig = {
 
     return (
       <>
+        <link rel="icon" href="https://app.tryleap.ai/favicon.ico" />
         <meta
           property="og:image"
-          content="https://www.tryleap.ai/og.png"
+          content="https://app.tryleap.ai/og.png"
         ></meta>
         <meta property="og:url" content={url} />
         <meta property="og:title" content={frontMatter.title || "Leap"} />
