@@ -83,9 +83,21 @@ export function ExampleBuilds() {
   return (
     <CardGridSecondary>
       <SelectionCardSecondary
-        title="Headshots"
-        description="Train a model and generate an avatar or headshot."
+        title="Headshot AI"
+        description="Generate Professional AI Headshots in minutes."
+        href={"https://github.com/leap-ai/headshots-starter"}
+        icon={<FaGithub size={26} />}
+      />
+      <SelectionCardSecondary
+        title="AI Avatars"
+        description="Train a model and generate AI avatars and portraits."
         href={internalLinks.builds_avatars}
+        icon={<FaGithub size={26} />}
+      />
+      <SelectionCardSecondary
+        title="Draw It"
+        description="Sketch something and turn it into an image."
+        href={internalLinks.builds_drawIt}
         icon={<FaGithub size={26} />}
       />
       <SelectionCardSecondary
@@ -110,12 +122,6 @@ export function ExampleBuilds() {
         title="Remix My Face"
         description="Upload a selfie and generate a custom avatar."
         href={internalLinks.builds_remixMyFace}
-        icon={<FaGithub size={26} />}
-      />
-      <SelectionCardSecondary
-        title="Draw It"
-        description="Sketch something and turn it into an image."
-        href={internalLinks.builds_drawIt}
         icon={<FaGithub size={26} />}
       />
     </CardGridSecondary>
