@@ -1,8 +1,10 @@
 export const internalLinks = {
   typeScriptSdk: "/sdk/typescript-sdk",
-  typeScriptSdk_images: "/sdk/generating-images",
-  typeScriptSdk_models: "/sdk/training-models",
-  typeScriptSdk_music: "/sdk/generating-music",
+  typeScriptSdk_images:
+    "https://reference.tryleap.ai/reference/inferencescontroller_generate",
+  typeScriptSdk_models: "https://reference.tryleap.ai/reference/train",
+  typeScriptSdk_music:
+    "https://reference.tryleap.ai/reference/musiccontroller_generate",
   typeScriptSdk_types: "/sdk/types",
   typeScriptSdk_types_inference: "/sdk/types#inference",
   typeScriptSdk_types_image: "/sdk/types#image",

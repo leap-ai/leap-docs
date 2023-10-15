@@ -1,4 +1,8 @@
 {
+  "--": {
+    "type": "separator",
+    "title": "Documentation"
+  },
   "index": {
     "title": "Introduction"
   },
@@ -17,19 +21,24 @@
   },
   "api-docs": {
     "title": "RESTful API ↗",
-    "href": "https://reference.tryleap.ai/reference/inferencescontroller_create-1"
+    "href": "https://reference.tryleap.ai/reference/"
   },
   "webhooks": "Webhooks",
-  "builds": "Builds",
-  "billing": "Billing",
-  "blog": {
-    "title": "Blog ↗",
-    "type": "page",
-    "href": "https://blog.tryleap.ai",
-    "newWindow": true
+  "-": {
+    "type": "separator",
+    "title": "Resources"
   },
+  "examples": "Example Builds",
+  "builds": "Guides",
+  "public-models": "Public Models",
+  "integrations": "Integrations",
+  "Policies": {
+    "type": "separator",
+    "title": "FAQs"
+  },
+  "billing": "Billing",
   "status-report": {
-    "title": "Status ↗",
+    "title": "API Status ↗",
     "type": "page",
     "href": "https://status.tryleap.ai/",
     "newWindow": true
