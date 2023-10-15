@@ -11,7 +11,7 @@ To access workflows, you first need to set up an account at https://alpha.trylea
 Workflows can be initiated by sending a `POST` request to the following endpoint:
 
 ```text copy
-https://api.workflows.tryleap.ai/workflows
+https://api.workflows.tryleap.ai/v1/workflows
 ```
 
 Your request body must include the following;
