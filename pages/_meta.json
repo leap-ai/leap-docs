@@ -39,5 +39,8 @@
     "type": "page",
     "href": "https://app.tryleap.ai",
     "newWindow": true
+  },
+  "workflows": {
+    "type": ""
   }
 }
