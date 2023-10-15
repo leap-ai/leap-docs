@@ -1,3 +1,5 @@
+# Workflows API
+
 This document outlines how to call the new Leap workflows API.
 
 ## Authenticating Your Account
