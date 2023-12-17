@@ -18,6 +18,16 @@ It is important to note that the machine learning models (such as Stable Diffusi
 
 At Leap, we are committed to upholding the highest standards of legal and ethical conduct. We encourage our users to do the same. By complying with the licenses and restrictions on our platform, you can ensure that your creations are legal, ethical, and respectful of the intellectual property of others.
 
+## Model Retention Policy
+
+30-Day Retention: We store your trained machine learning models for 30 days post-training. This timeframe is chosen to balance user needs with the high cost of data storage.
+
+Unrestricted Access: Within these 30 days, you have full access to your models, as long as you adhere to the licensing terms.
+
+Automatic Deletion: After 30 days, your model is automatically deleted from our systems, in line with our resource management strategy.
+
+No Storage Beyond 30 Days: We do not offer extended storage for models beyond the 30-day period. Please ensure you extract any needed data from your models before this deadline.
+
 ## Summary
 
 In summary, Leap provides a platform for users to access and utilize machine learning models, but we do not determine ownership or licensing of these models. Users own the creations they generate and are responsible for reviewing and complying with the licenses and restrictions of the models they use.
